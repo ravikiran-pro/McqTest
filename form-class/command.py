@@ -8,7 +8,6 @@ class Command:
 		self.window=window	
 	def destroy(self):
 		self.root.destroy()
-		self.window.destroy()
 	def create_sheet(self,sheetname):
 		self.locker.openlocker()
 		filename=sheetname.get()

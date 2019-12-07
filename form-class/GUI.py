@@ -6,7 +6,7 @@ class Button:
 	def __init__(self,root):
 		self.root=root
 		"""Default properties"""
-		font=Font(self.root,family="helevetica",size="12",color="orange")
+		font=Font(self.root,family="Consolas",size="12")
 		self.font=font.create()
 		self.width=0
 		self.height=0
@@ -29,6 +29,9 @@ class Button:
 			text=self.text,command=self.command,
 			width=self.width,height=self.height,font=self.font,
 			border=self.border,bg=self.bg,fg=self.fg)
+	def capture(self,location):
+		self.background=Background(self.root,location)
+		self.image=tk.Button(self.root,image=self.background.photo,command=self.command,width=self.width,height=self.height)
 
 """class label"""
 class Label(Button):
@@ -38,6 +41,9 @@ class Label(Button):
 		self.label=tk.Label(self.root,text=self.text,
 			width=self.width,height=self.height,font=self.font
 			,border=self.border,bg=self.bg,fg=self.fg)
+	def capture(self,location):
+		self.background=Background(self.root,location)
+		self.image=tk.Label(self.root,image=self.background.photo,width=self.width)
 """class entry"""
 class Entry(Button):
 	def __init__(self,root):
@@ -73,9 +79,15 @@ class Font:
 class Combobox(Button):
 	def __init__(self,root):
 		Button.__init__(self,root)
-		f=Font(self.root,"helevetica","bold",12,"green")
-		self.f=f.create()
 	def create(self,w,h,*product):
-		self.combobox=ttk.Combobox(self.root,value=product,width=w,height=h,font=self.f,background="green")
+		self.combobox=ttk.Combobox(self.root,value=product,width=w,height=h,font=self.font)
+
+class Background:
+	def __init__(self,root,location):
+		self.root=root;
+		self.location=location
+		self.photo=tk.PhotoImage(file=location)
+		
 
 
+		
