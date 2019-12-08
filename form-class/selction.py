@@ -2,16 +2,17 @@ from window import*
 from GUI import*
 from tkinter import ttk
 from command import*
-
+from append_forms import*
 
 win = Window()
 win.__title__("Quest")
 win.__geometry__(360,400)
+win.__lockscreen__()
 uniquebackground="tomato"
 one=Frame(win.root)
 frame=one.create()
 frame.configure(background=uniquebackground)
-redirect =Command(frame,win.root)
+redirect=Append(win.root,frame)
 
 """Creating bannner"""
 banner=Label(frame)
@@ -99,7 +100,7 @@ Email.create()
 submit=Button(frame)
 submit.text("Start")
 submit.dimension(70,30,0)
-submit.command(lambda: redirect.destroy())
+submit.command(lambda: redirect.start(Name.entry,Age.entry,College.entry,Department.combobox,Year.combobox,Location.entry,Mobile.entry,Email.entry))
 submit.capture("images//button.png")
 
 """Packing Everything"""
@@ -123,5 +124,7 @@ label8.label.grid(row=14,column=0,sticky="w",padx="10",pady="10")
 Email.entry.grid(row=14,column=0,sticky="w",padx="95",pady="10")
 submit.image.grid(row=15,sticky="w",padx="130",pady="10")
 frame.pack(side="left",expand="true")
-win.__start__()
+
+if __name__ == '__main__':
+	win.__start__()
 

@@ -5,7 +5,7 @@ import os
 import xlrd 	
 import xlwt		
 
-path="C:\\Users\\ADMIN\\AppData\\Local\\Programs\\Python\\Python37\\include\\internal\\files\\workbook.xls"
+path="C:\\Users\\admin\\workspace\\files\\workbook.xls"
 class Workbook:
 
 	def open_workbook(self):
@@ -23,20 +23,31 @@ class Workbook:
 
 		except xlrd.biffh.XLRDError:	
 			messagebox.showerror("Service stopped","Improper Sheetname")
-	
+	def sheet(self,book,sheetname):
+		sheet=book.sheet_by_name(sheetname)
+		return sheet
 	def new_sheet(self,book,filename):
 		try:
 			sheet = book.add_sheet(filename)
 			sheet = book.get_sheet(filename)
+			messagebox.showinfo("success","success")
 			return sheet
 		except:
 			messagebox.showerror("Error",filename+" already present")
 	def get_sheet(self,book,filename):
 		sheet = book.get_sheet(filename)
 		return sheet
-	def write_sheet(self,sheet,r1,c1,text1,r2,c2,text2):
+	def read_sheet(self,row,sheet):
+		list=[]
+		list.append(sheet.cell(row,0).value)
+		list.append(sheet.cell(row,1).value)
+		list.append(sheet.cell(row,2).value)
+		list.append(sheet.cell(row,3).value)
+		list.append(sheet.cell(row,4).value)
+		list.append(sheet.cell(row,5).value)
+		return list
+	def write_sheet(self,sheet,r1,c1,text1):
 		sheet.write(r1,c1,text1)
-		sheet.write(r2,c2,text2)
 	def save(self,book):
 		global path
 		book.save(path)

@@ -2,11 +2,16 @@ import tkinter as tk
 class Window:
 	def __init__(self):
 		self.root=tk.Tk()
+	def screen_height(self):
+		self.screen_height=self.root.winfo_screenwidth()
+		return self.screen_height
+	def screen_width(self):
+		self.screen_width=self.root.winfo_screenheight()
+		return self.screen_width
 	def __geometry__(self,width,height):
-		self.screen_width=self.root.winfo_screenwidth()
-		self.screen_height=self.root.winfo_screenheight()
 		dimenison = str(width)+'x'+str(height)
 		self.root.geometry(dimenison)
+	def __lockscreen__(self):
 		self.root.resizable(False,False)
 	def __background__(self,color):
 		self.color=color

@@ -89,5 +89,9 @@ class Background:
 		self.photo=tk.PhotoImage(file=location)
 		
 
+	
+
+
+		
 
 		
