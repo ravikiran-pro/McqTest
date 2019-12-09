@@ -51,18 +51,20 @@ class Command:
 		choice2=Choice2.get()
 		choice3=Choice3.get()
 		choice4=Choice4.get()
-		self.workbook = Workbook()
-		self.book=self.workbook.open_workbook()
-		self.row=self.workbook.size(self.book,filename)
-		book=self.workbook.copy_workbook(self.book)
-		if self.row is not None:
-			self.sheet=self.workbook.get_sheet(book,filename)
-			list=[question,answer,choice1,choice2,choice3,choice4]
-			for i in range(len(list)):
-				self.workbook.write_sheet(self.sheet,self.row,i,list[i])	
-		self.workbook.save(book)
-		messagebox.showinfo("success","success")
-		self.locker.closelocker()	
+		if choice1 and choice2 and choice3 and choice4 is not " ":
+			self.workbook = Workbook()
+			self.book=self.workbook.open_workbook()
+			self.row=self.workbook.size(self.book,filename)
+			book=self.workbook.copy_workbook(self.book)
+			if self.row is not None:
+				self.sheet=self.workbook.get_sheet(book,filename)
+				print(self.row)
+				list=[question,answer,choice1,choice2,choice3,choice4]
+				for i in range(len(list)):
+					self.workbook.write_sheet(self.sheet,self.row,i,list[i])	
+				self.workbook.save(book)
+				messagebox.showinfo("success","success")
+				self.locker.closelocker()	
 	def user_personal_data(self,name,college,department,year,location,mobile,email):	
 		self.locker.openlocker()
 		self.workbook = Workbook()
@@ -98,6 +100,22 @@ class Command:
 		list=self.workbook.read_sheet(data,self.sheet)
 		self.locker.closelocker()
 		return list
-		
+	def score(self,choice):
+		marks=1
+		answer=""
+		for i in range(len(choice)):
+			if str(choice[i].var1.get()) is not " ":
+				answer=choice[i].var1.get()
+			if str(choice[i].var2.get()) is not " ":
+				answer=choice[i].var2.get()
+			if str(choice[i].var3.get()) is not " ":
+				answer=choice[i].var3.get()
+			if str(choice[i].var4.get()) is not " ":
+				answer=choice[i].var4.get()
+			if answer is  choice[i].answer:
+				print(answer)
+				print(choice[i].answer)
+				marks+=1
+		print(marks)
 
 		
