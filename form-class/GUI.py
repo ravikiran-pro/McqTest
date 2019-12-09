@@ -56,17 +56,11 @@ class Checkbutton:
 		self.answer=answer
 		self.var1=tk.StringVar()
 		self.var1.set(" ")
-		self.var2=tk.StringVar()
-		self.var2.set(" ")
-		self.var3=tk.StringVar()
-		self.var3.set(" ")
-		self.var4=tk.StringVar()
-		self.var4.set(" ")
 	def create(self):
-		self.c1=tk.Checkbutton(self.root,text=self.choice1,variable=self.var1,onvalue=self.choice1)
-		self.c2=tk.Checkbutton(self.root,text=self.choice2,variable=self.var2,onvalue=self.choice2)
-		self.c3=tk.Checkbutton(self.root,text=self.choice3,variable=self.var3,onvalue=self.choice3)
-		self.c4=tk.Checkbutton(self.root,text=self.choice4,variable=self.var4,onvalue=self.choice4)
+		self.c1=tk.Checkbutton(self.root,text=self.choice1,variable=self.var1,offvalue="0",onvalue=self.choice1)
+		self.c2=tk.Checkbutton(self.root,text=self.choice2,variable=self.var1,offvalue="0",onvalue=self.choice2)
+		self.c3=tk.Checkbutton(self.root,text=self.choice3,variable=self.var1,offvalue="0",onvalue=self.choice3)
+		self.c4=tk.Checkbutton(self.root,text=self.choice4,variable=self.var1,offvalue="0",onvalue=self.choice4)
 class Entry(Button):
 	def __init__(self,root):
 		Button.__init__(self,root)

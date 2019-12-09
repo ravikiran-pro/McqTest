@@ -7,30 +7,7 @@ def mouse_wheel(event):
     if event.num == 4 or event.delta == 120:
         count += 1
     label['text'] = count
-
-"""class scrollbar_implement:
-	def __init__(self,root,RWidth,RHeight):
-		root.geometry("%dx%d"%(RWidth,RHeight))
-		root.resizable(0,0)	#non-re-sizable Window
-		container = Frame(root)
-		#Creating a canvas frame for adding Scrollbar
-		canvas = Canvas(container,height=RHeight-50,width=RWidth-50)
-		scrollbar = Scrollbar(container, orient="vertical", command=canvas.yview)
-		scrollable_frame = Frame(canvas)
-		scrollable_frame.bind(
-    	"<Configure>",
-    	lambda e: canvas.configure(
-	        scrollregion=canvas.bbox("all")
-    	)
-		)
-		canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
-		canvas.configure(yscrollcommand=scrollbar.set)
-		for i in range(100):
-			Label(scrollable_frame,text="dd").pack()
-		
-		container.pack()
-		canvas.pack(side="left", fill="both", expand=True)
-		scrollbar.pack(side="right", fill="y")"""
+   
 class scrollbar_implement:
 	def __init__(self,root,RWidth,RHeight):
 		self.root=root

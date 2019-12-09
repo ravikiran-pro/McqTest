@@ -9,7 +9,7 @@ class Append:
 	def start(self,Name,Age,College,Department,Year,Location,Mobile,Email):
 		self.c.user_personal_data(Name.get(),College.get(),Department.get(),Year.get(),Location.get(),Mobile.get(),Email.get())
 		department=Department.get()
-		question_count=10
+		question_count=15
 		data=[]
 		c = Command(self.root,self.frame)
 		rows=c.retrieve_data("programming") #row from command

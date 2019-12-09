@@ -112,6 +112,7 @@ Name.entry.grid(row=7,column=0,sticky="w",padx="10")
 Age.entry.grid(row=7,column=0,sticky="w",padx="265")
 label3.label.grid(row=8,sticky="w",padx="10")
 College.entry.grid(row=9,sticky="w",padx="10")
+
 label4.label.grid(row=10,column=0,sticky="w",padx="10")
 label5.label.grid(row=10,column=0,sticky="w",padx="265")
 Department.combobox.grid(row=11,column=0,sticky="w",padx="10")
@@ -123,7 +124,7 @@ Mobile.entry.grid(row=13,column=0,sticky="w",padx="95",pady="10")
 label8.label.grid(row=14,column=0,sticky="w",padx="10",pady="10")
 Email.entry.grid(row=14,column=0,sticky="w",padx="95",pady="10")
 submit.image.grid(row=15,sticky="w",padx="130",pady="10")
-frame.pack(side="left",expand="true")
+frame.pack(side="left",expand="true",fill="y")
 										
 if __name__ == '__main__':
 	win.__start__()
