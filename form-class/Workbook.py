@@ -1,13 +1,11 @@
 from xlutils.copy import copy	
 from tkinter import messagebox
 import random
-import os
 import xlrd 	
 import xlwt		
 
 path="C:\\Users\\admin\\workspace\\files\\workbook.xls"
 class Workbook:
-
 	def open_workbook(self):
 		global path
 		book = xlrd.open_workbook(path,formatting_info=True)
@@ -47,7 +45,7 @@ class Workbook:
 		list.append(sheet.cell(row,5).value)
 		return list
 	def write_sheet(self,sheet,r1,c1,text1):
-		sheet.write(r1,c1,text1)
+		sheet.write(r1,c1,text1.title())
 	def save(self,book):
 		global path
 		book.save(path)

@@ -1,7 +1,8 @@
-import tkinter
 from Workbook import*
 from locker import*
 from random import randint
+import tkinter
+import os
 class Command:
 	def __init__(self,root,window):
 		self.locker=Locker()
@@ -64,7 +65,7 @@ class Command:
 					self.workbook.write_sheet(self.sheet,self.row,i,list[i])	
 				self.workbook.save(book)
 				messagebox.showinfo("success","success")
-				self.locker.closelocker()	
+		self.locker.closelocker()	
 	def user_personal_data(self,name,college,department,year,location,mobile,email):	
 		self.locker.openlocker()
 		self.workbook = Workbook()
@@ -82,6 +83,7 @@ class Command:
 		self.workbook = Workbook()
 		self.book=self.workbook.open_workbook()
 		self.row=self.workbook.size(self.book,filename)
+		self.locker.closelocker()
 		return self.row
 	def generator(self,rows,question_count):
 		data=[]

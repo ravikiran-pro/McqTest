@@ -6,8 +6,6 @@ class Button:
 	def __init__(self,root):
 		self.root=root
 		"""Default properties"""
-		font=Font(self.root,family="Consolas",size="12")
-		self.font=font.create()
 		self.width=0
 		self.height=0
 		self.border=1
@@ -24,7 +22,10 @@ class Button:
 		self.fg=fg
 	def command(self,choice):
 		self.command=choice
-	def create(self):
+	def create(self,size=12):
+		self.size=size
+		font=Font(self.root,family="Consolas",size=self.size)
+		self.font=font.create()
 		self.button = tk.Button(self.root,
 			text=self.text,command=self.command,
 			width=self.width,height=self.height,font=self.font,
@@ -37,7 +38,10 @@ class Button:
 class Label(Button):
 	def __init__(self,root):
 		Button.__init__(self,root)
-	def create(self):
+	def create(self,size=12):
+		self.size=size
+		font=Font(self.root,family="Consolas",size=self.size)
+		self.font=font.create()
 		self.label=tk.Label(self.root,text=self.text,
 			width=self.width,height=self.height,font=self.font
 			,border=self.border,bg=self.bg,fg=self.fg)
@@ -56,16 +60,22 @@ class Checkbutton:
 		self.answer=answer
 		self.var1=tk.StringVar()
 		self.var1.set(" ")
-	def create(self):
-		self.c1=tk.Checkbutton(self.root,text=self.choice1,variable=self.var1,offvalue="0",onvalue=self.choice1)
-		self.c2=tk.Checkbutton(self.root,text=self.choice2,variable=self.var1,offvalue="0",onvalue=self.choice2)
-		self.c3=tk.Checkbutton(self.root,text=self.choice3,variable=self.var1,offvalue="0",onvalue=self.choice3)
-		self.c4=tk.Checkbutton(self.root,text=self.choice4,variable=self.var1,offvalue="0",onvalue=self.choice4)
+	def create(self,size=12):
+		self.size=size
+		font=Font(self.root,family="Consolas",size=self.size,weight="bold")
+		self.font=font.create()
+		self.c1=tk.Checkbutton(self.root,text=self.choice1,variable=self.var1,font=self.font,offvalue="0",onvalue=self.choice1,activebackground="red",background='white')
+		self.c2=tk.Checkbutton(self.root,text=self.choice2,variable=self.var1,font=self.font,offvalue="0",onvalue=self.choice2,activebackground="red",background='white')
+		self.c3=tk.Checkbutton(self.root,text=self.choice3,variable=self.var1,font=self.font,offvalue="0",onvalue=self.choice3,activebackground="red",background='white')
+		self.c4=tk.Checkbutton(self.root,text=self.choice4,variable=self.var1,font=self.font,offvalue="0",onvalue=self.choice4,activebackground="red",background='white')
 class Entry(Button):
 	def __init__(self,root):
 		Button.__init__(self,root)
 		self.width=40
-	def create(self):
+	def create(self,size=12):
+		self.size=size
+		font=Font(self.root,family="Consolas",size=self.size)
+		self.font=font.create()
 		self.entry=tk.Entry(self.root,text=self.text,
 			width=self.width,
 			border=self.border,font=self.font,	
@@ -74,7 +84,10 @@ class Text(Button):
 		"""docstring for Text"""
 		def __init__(self,root):
 			Button.__init__(self,root)
-		def create(self):
+		def create(self,size=12):
+			self.size=size
+			font=Font(self.root,family="Consolas",size=self.size)
+			self.font=font.create()
 			self.text=tk.Text(self.root,
 				width=self.width,height=self.height,
 				border=self.border,font=self.font,
@@ -95,6 +108,8 @@ class Combobox(Button):
 	def __init__(self,root):
 		Button.__init__(self,root)
 	def create(self,w,h,*product):
+		font=Font(self.root,family="Consolas",size="12")
+		self.font=font.create()
 		self.combobox=ttk.Combobox(self.root,value=product,width=w,height=h,font=self.font)
 
 class Background:

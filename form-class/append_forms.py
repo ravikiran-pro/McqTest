@@ -1,4 +1,3 @@
-import tkinter
 from command import*
 from test import*
 class Append:

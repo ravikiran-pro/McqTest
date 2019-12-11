@@ -1,6 +1,5 @@
 from window import*
 from GUI import*
-from tkinter import ttk
 from command import*
 from append_forms import*
 
